@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.green-top {
+    width: 100vw;
+    height: 100px;
+    background-color:#009688 ;
+}
+.main-container {
+    width: 100vw;
+    height: calc(100vh - 100px);
+    background-color: #D7DBD6;
+    position: relative;
+}
+
+#root {
+    width: 75%;
+    height: 90vh;
+    margin: 0 auto;
+    background-color: red;
+    position: absolute;
+    bottom: 6%;
+    left: 0;
+    right: 0;
+    background-color: #F8F9FA;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 0px 4px 0px,
+    rgba(0, 0, 0, 0.08) 0px 8px 16px 0px;
+    border-radius: 4px;
+}
+
+.container-chats {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.contact {
+    width: 35%;
+    height: 100%;
+    
+}
+.chat {
+    width: 65%;
+    height: 100%;
+    
+}
+.info {
+    width: 100%;
+    height: 65px;
+    background-color: #EDEDED;
+    border-top-left-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.info img  {
+    border-radius: 100%;
+    width: 40px;
+    margin-left: 10px;
+}
+.right-icon {
+    margin-right: 10px;
+}
+.right-icon i {
+    margin-right: 30px;
+    color: #919191;
+    font-size: 18px;
+}
+.notifiche {
+    width: 100%;
+    height: 65px;
+    background-color: #9EE1FE;
+    display: flex;
+    align-items: center;
+}
+
+.search {
+    width: 100%;
+    height: 55px;
+    background-color: #F6F6F6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#bell {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+#bell i {
+    color:#9EE1FE; 
+    font-size: 20px;
+}
+.notifiche h5 {
+    font-size: 12px;
+}
+.notifiche a{
+    color: #000;
+    font-size: 11px;
+}
+.search > input {
+    width: 90%;
+    border: 0;
+    padding: 7px;
+    border-radius: 50px;
+    /* font-family: "Font Awesome 5 Free"; font-weight: 900; */
+}
+
+.list {
+    width: 100%;
+    height: calc(100% - 185px);
+}
