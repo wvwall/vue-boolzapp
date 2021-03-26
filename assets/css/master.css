@@ -18,7 +18,7 @@
 }
 
 #root {
-    width: 75%;
+    width: 80%;
     height: 90vh;
     margin: 0 auto;
     background-color: red;
@@ -56,16 +56,24 @@
     align-items: center;
     justify-content: space-between;
 }
+.left-info {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 .info img  {
     border-radius: 100%;
     width: 40px;
     margin-left: 10px;
 }
 .right-icon {
+    width: 30%;
     margin-right: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 .right-icon i {
-    margin-right: 30px;
     color: #919191;
     font-size: 18px;
 }
@@ -86,8 +94,8 @@
     align-items: center;
 }
 #bell {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background-color: #fff;
     border-radius: 100%;
     display: flex;
@@ -117,4 +125,12 @@
 .list {
     width: 100%;
     height: calc(100% - 185px);
+}
+li {
+    list-style: none;
+}
+.list-chat img {
+    width: 50px;
+    border-radius: 100%;
+    margin-left: 20px;
 }

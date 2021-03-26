@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WhatsAppBool</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"> 
@@ -21,7 +21,11 @@
                 <div class="container-chats">
                     <div class="contact">
                         <div class="info">
-                            <img src="./assets/img/user.png" alt="">
+                            <div class="left-info">
+                                <img src="./assets/img/user.png" alt="">
+                                <h5>wvwall</h5>
+                            </div>
+                           
                             <div class="right-icon">
                                 <i class="fas fa-spinner"></i>
                                 <i class="fas fa-comment-alt"></i>
@@ -32,15 +36,25 @@
                             <span id="bell"><i class="far fa-bell-slash"></i></span>
                             <span>
                                 <h5>Ricevi notifiche di nuovi messaggi</h5>
-                                <a href="">Attiva notifiche desktop</a>
+                                <a href="">Attiva le notifiche desktop</a>
                             </span>
                         </div>
                         <div class="search">
                             <input type="text" placeholder="Cerca o inizia una nuova chat">
                         </div>
-                        <div class="list"></div>
+                        <ul class="list">
+                            <li class="list-chat" v-for= "utente in contacts">
+                                <img :src="'./assets/img/avatar' + utente.avatar + '.jpg'" alt="user">
+                                <span>{{ utente.name }}</span>
+                                <span v-for="utente in contacts.messages">
+            
+                                </span>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="chat"></div>  
+                    <div class="chat">
+                        
+                    </div>  <!-- <img :src="'./assets/img/avatar' + contact.avatar + '.jpg'" alt=""> -->
                 </div>
                 
             </div>
