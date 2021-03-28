@@ -43,18 +43,42 @@
                             <input type="text" placeholder="Cerca o inizia una nuova chat">
                         </div>
                         <ul class="list">
-                            <li class="list-chat" v-for= "utente in contacts">
+                            <li :class="{'bg-active': i == activeIndex}" class="list-chat" v-for= "(utente,i) in contacts" @click= "Active(i) ">
                                 <img :src="'./assets/img/avatar' + utente.avatar + '.jpg'" alt="user">
-                                <span>{{ utente.name }}</span>
-                                <span v-for="utente in contacts.messages">
-            
-                                </span>
+                                <div class="info-c">
+                                    <span class="name-user">{{ utente.name }}</span>
+                                    <span class="msg-user">{{ lastMsg(i).text }}</span>    
+                                </div>
+                                <span class="date-user">{{ lastMsg(i).date }}</span>   
                             </li>
                         </ul>
                     </div>
                     <div class="chat">
-                        
-                    </div>  <!-- <img :src="'./assets/img/avatar' + contact.avatar + '.jpg'" alt=""> -->
+                        <div class="info-chat">
+                            <div class="info-chat-left">
+                                <img :src="'assets/img/avatar' + contacts[activeIndex].avatar + '.jpg' " alt="user">
+                                <div class="info-c">
+                                    <span class="name-user">{{ contacts[activeIndex].name }}</span>
+                                     <span class="msg-user">Ultimo accesso :{{ contacts[activeIndex].messages[contacts[activeIndex].messages.length - 1].date }}</span>    
+                                </div>
+
+                            </div>
+                            <div class="right-icon-chat">
+                                <i class="fas fa-search"></i>
+                                <i class="fas fa-paperclip"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+                        <div class="main-chat">
+                            <span><p class="sent">Scompensi emotivi?</p></span>
+                            <span><p class="received">A voglia!</p></span>
+                        </div>
+                        <div class="write-chat">
+                            <span><i class="far fa-smile"></i></span>
+                            <input type="text" placeholder="Scrivi messaggio">
+                            <span><i class="fas fa-microphone"></i></span>
+                        </div>
+                    </div>  
                 </div>
                 
             </div>
@@ -67,5 +91,6 @@
 
     <script src='https://cdn.jsdelivr.net/npm/vue'></script>
     <script src="./assets/js/dati.js"></script>
+    <script src="./assets/js/main.js"></script>
 </body>
 </html>
