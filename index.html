@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="./assets/css/master.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
 </head>
 <body>
     
@@ -17,72 +18,80 @@
     </nav>
     <main>
         <section class="main-container">
-            <div id="root">
-                <div class="container-chats">
-                    <div class="contact">
-                        <div class="info">
-                            <div class="left-info">
-                                <img src="./assets/img/user.png" alt="">
-                                <h5>wvwall</h5>
-                            </div>
-                           
-                            <div class="right-icon">
-                                <i class="fas fa-spinner"></i>
-                                <i class="fas fa-comment-alt"></i>
-                                <i class="fas fa-ellipsis-v"></i>
-                            </div>
-                        </div>
-                        <div class="notifiche">
-                            <span id="bell"><i class="far fa-bell-slash"></i></span>
-                            <span>
-                                <h5>Ricevi notifiche di nuovi messaggi</h5>
-                                <a href="">Attiva le notifiche desktop</a>
-                            </span>
-                        </div>
-                        <div class="search">
-                            <input type="text" placeholder="Cerca o inizia una nuova chat">
-                        </div>
-                        <ul class="list">
-                            <li :class="{'bg-active': i == activeIndex}" class="list-chat" v-for= "(utente,i) in contacts" @click= "Active(i) ">
-                                <img :src="'./assets/img/avatar' + utente.avatar + '.jpg'" alt="user">
-                                <div class="info-c">
-                                    <span class="name-user">{{ utente.name }}</span>
-                                    <span class="msg-user">{{ lastMsg(i).text }}</span>    
-                                </div>
-                                <span class="date-user">{{ lastMsg(i).date }}</span>   
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="chat">
-                        <div class="info-chat">
-                            <div class="info-chat-left">
-                                <img :src="'assets/img/avatar' + contacts[activeIndex].avatar + '.jpg' " alt="user">
-                                <div class="info-c">
-                                    <span class="name-user">{{ contacts[activeIndex].name }}</span>
-                                     <span class="msg-user">Ultimo accesso :{{ contacts[activeIndex].messages[contacts[activeIndex].messages.length - 1].date }}</span>    
-                                </div>
-
-                            </div>
-                            <div class="right-icon-chat">
-                                <i class="fas fa-search"></i>
-                                <i class="fas fa-paperclip"></i>
-                                <i class="fas fa-ellipsis-v"></i>
-                            </div>
-                        </div>
-                        <div class="main-chat">
-                            <span><p class="sent">Scompensi emotivi?</p></span>
-                            <span><p class="received">A voglia!</p></span>
-                        </div>
-                        <div class="write-chat">
-                            <span><i class="far fa-smile"></i></span>
-                            <input type="text" placeholder="Scrivi messaggio">
-                            <span><i class="fas fa-microphone"></i></span>
-                        </div>
-                    </div>  
-                </div>
-                
-            </div>
+            
         </section>
+        <div id="root">
+            <div class="container-chats">
+                <div class="contact">
+                    <div class="info">
+                        <div class="left-info">
+                            <img src="./assets/img/user.png" alt="">
+                            <h5 id="user">wvwall</h5>
+                        </div>
+                       
+                        <div class="right-icon">
+                            <i class="fas fa-spinner"></i>
+                            <i class="fas fa-comment-alt"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+                    <div class="notifiche">
+                        <span id="bell"><i class="far fa-bell-slash"></i></span>
+                        <span>
+                            <h5>Ricevi notifiche di nuovi messaggi</h5>
+                            <a href="">Attiva le notifiche desktop</a>
+                        </span>
+                    </div>
+                    <div class="search">
+                        <i class="fas fa-search"></i>
+                        <input v-model="filterMsg" @keyup="searchUtente" placeholder="Cerca una chat">
+                    </div>
+                    <ul class="list">
+                        <li :class="{'bg-active': i == activeIndex}" class="list-chat" v-if="utente.visible" v-for= "(utente,i) in contacts" @click= "active(i) ">
+                            <img :src="'./assets/img/avatar' + utente.avatar + '.jpg'" alt="user">
+                            <div class="info-c">
+                                <span class="name-user">{{ utente.name }}</span>
+                                <span class="msg-user">{{ lastMsg(i).text }}</span>    
+                            </div>
+                            <span class="date-user">{{ lastMsg(i).date }}</span>   
+                        </li>
+                    </ul>
+                </div>
+                <div class="chat">
+                    <div class="info-chat">
+                        <div class="info-chat-left">
+                            <img :src="'assets/img/avatar' + contacts[activeIndex].avatar + '.jpg' " alt="user">
+                            <div class="info-c">
+                                <span class="name-user">{{ contacts[activeIndex].name }}</span>
+                                 <span class="msg-user">Ultimo accesso :{{ contacts[activeIndex].messages[contacts[activeIndex].messages.length - 1].date }}</span>    
+                            </div>
+
+                        </div>
+                        <div class="right-icon-chat">
+                            <i class="fas fa-search"></i>
+                            <i class="fas fa-paperclip"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+                    <div class="main-chat" >
+                        <div  v-for= "message in contacts[activeIndex].messages">
+                            <span class="message" :class="message.status" >{{ message.text }}
+                                <span id="date" >{{ message.date }}</span>
+                            </span>
+                            
+                           
+                        </div>
+                        
+                    </div>
+                    <div class="write-chat">
+                        <span><i class="far fa-smile"></i></span>
+                        <input v-model="inputMsg"  @keyup.enter="addMsg" placeholder="Scrivi messaggio">
+                        <span><i class="fas fa-microphone"></i></span>
+                    </div>
+                </div>  
+            </div>
+            
+        </div>
     </main>
 
 
