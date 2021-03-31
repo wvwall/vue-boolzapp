@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WhatsAppBool</title>
+    <title>WalltsApp</title>
+    <!-- POPPINS FONT -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"> 
+    <!-- FONT-AWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+   <!-- CSS -->
     <link rel="stylesheet" href="./assets/css/master.css">
+   <!-- MOMENTJS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -18,10 +22,12 @@
     </nav>
     <main>
         <section class="main-container">
-            
         </section>
         <div id="root">
-            <div class="container-chats">
+            <div class="container-chats">ù
+
+                <!-- SIDEBAR CONTATTI -->
+
                 <div class="contact">
                     <div class="info">
                         <div class="left-info">
@@ -57,6 +63,9 @@
                         </li>
                     </ul>
                 </div>
+
+               <!-- CHATS -->
+
                 <div class="chat">
                     <div class="info-chat">
                         <div class="info-chat-left">
@@ -73,15 +82,26 @@
                             <i class="fas fa-ellipsis-v"></i>
                         </div>
                     </div>
+
+                    <!-- MSG + DROPDOWN -->
+
                     <div class="main-chat" >
-                        <div  v-for= "message in contacts[activeIndex].messages">
-                            <span class="message" :class="message.status" >{{ message.text }}
+                        <div  v-for= "(message,drop) in contacts[activeIndex].messages">
+                            <span class="message" :class="message.status" >{{ message.text }} 
+                                <i  @click="showDrop(drop)" class="fas fa-chevron-down" > <div :class="(contacts[activeIndex].messages[drop].drop) ? 'visible' : 'notvisible'" class="dropdown-msg">
+                                    <ul>
+                                        <li>Info messaggio</li>
+                                        <li @click="deleteMsg(drop)" >Elimina</li>
+                                    </ul>
+                                </div></i>
+                               <div class="date-msg">
                                 <span id="date" >{{ message.date }}</span>
+                               </div>
                             </span>
-                            
-                           
                         </div>
                         
+                        <!-- INPUT MSG -->
+
                     </div>
                     <div class="write-chat">
                         <span><i class="far fa-smile"></i></span>
@@ -97,6 +117,7 @@
 
 
 
+    <!-- SCRIPT JS -->
 
     <script src='https://cdn.jsdelivr.net/npm/vue'></script>
     <script src="./assets/js/dati.js"></script>

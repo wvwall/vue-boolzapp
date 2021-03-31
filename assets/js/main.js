@@ -6,6 +6,7 @@ var app = new Vue({
 		activeIndex : 0,
 		contacts : contacts,
 		filterMsg : "",
+		isActive : false
 	},
 	
 	methods: {
@@ -14,7 +15,7 @@ var app = new Vue({
 		},
 
 		lastMsg(index) {
-			let msg = contacts[index].messages
+			let msg = contacts[index].messages;
 			return msg[msg.length - 1]
 		},
 
@@ -31,9 +32,10 @@ var app = new Vue({
                 let obj = {
                     date: this.now(),
                     text: this.inputMsg,
-                    status: 'sent'
+                    status: 'sent',
+					drop: false
                 }
-                contacts[this.activeIndex].messages.push(obj)
+                this.contacts[this.activeIndex].messages.push(obj)
                 this.inputMsg = ""
 				//richiamo rix automatica
                 this.rixAuto()
@@ -46,10 +48,11 @@ var app = new Vue({
 				// Settare dopo 1 secondo la risposta automatica
                 let obj = {
                     date: this.now(),
-                    text: "ok",
-                    status: 'received'
+                    text: "Ooooook",
+                    status: 'received',
+					drop:false
                 }
-                contacts[this.activeIndex].messages.push(obj)
+                this.contacts[this.activeIndex].messages.push(obj)
 
             }, 1000);
         },
@@ -86,6 +89,18 @@ var app = new Vue({
             });
 
         },
+		showDrop(index){
+            if(this.contacts[this.activeIndex].messages[index].drop == false){
+                this.contacts[this.activeIndex].messages[index].drop = true;
+            }else{
+                this.contacts[this.activeIndex].messages[index].drop = false;
+            }
+        },
+		deleteMsg(index){
+            this.contacts[this.activeIndex].messages.splice(index, 1);
+			
+        },
+		
 	}
 	
 });
