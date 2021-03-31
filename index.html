@@ -18,21 +18,25 @@
 <body>
     
     <nav>
-        <section class="green-top"></section>
+        <section class="green-top">
+        </section>
     </nav>
     <main>
         <section class="main-container">
         </section>
         <div id="root">
-            <div class="container-chats">ù
+            
+            <div class="container-chats">
 
                 <!-- SIDEBAR CONTATTI -->
-
+               
                 <div class="contact">
+                    
                     <div class="info">
                         <div class="left-info">
                             <img src="./assets/img/user.png" alt="">
                             <h5 id="user">wvwall</h5>
+                           
                         </div>
                        
                         <div class="right-icon">
@@ -62,6 +66,7 @@
                             <span class="date-user">{{ lastMsg(i).date }}</span>   
                         </li>
                     </ul>
+                    <div><button id="dark" @click="darkThemeSwitch"><i class="fas fa-adjust"></i></button></div>
                 </div>
 
                <!-- CHATS -->
@@ -76,11 +81,13 @@
                             </div>
 
                         </div>
+                        
                         <div class="right-icon-chat">
                             <i class="fas fa-search"></i>
                             <i class="fas fa-paperclip"></i>
                             <i class="fas fa-ellipsis-v"></i>
                         </div>
+                        
                     </div>
 
                     <!-- MSG + DROPDOWN -->

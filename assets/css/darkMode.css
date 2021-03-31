@@ -10,27 +10,24 @@
     height: 100px;
     background-color:#009688 ;
     
-    
 }
 .main-container {
     width: 100vw;
     height: calc(100vh - 100px);
-    background-color: #D7DBD6;
+    background-color: #090E11;
     position: relative;
-  
+    
 }
-
 
 #root {
     width: 80%;
     height: 90vh;
     margin: 0 auto;
-    background-color: red;
     position: absolute;
     bottom: 6%;
     left: 0;
     right: 0;
-    background-color: #F8F9FA;
+   
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 4px 0px,
     rgba(0, 0, 0, 0.1) 0px 8px 16px 0px;
     border-radius: 4px;
@@ -45,13 +42,16 @@
 }
 
 /* SIDEBAR CONTATTI*/
+
 #user {
+    color: white;
     margin-left: 10px;
 }
+
 .contact {
     width: 35%;
     height: 100%;
-    
+    background-color: #2A2F32;
 }
 .chat {
     width: 65%;
@@ -61,7 +61,7 @@
 .info {
     width: 100%;
     height: 65px;
-    background-color: #EDEDED;
+    background-color: #2A2F32;
     border-top-left-radius: 4px;
     display: flex;
     align-items: center;
@@ -85,21 +85,22 @@
     justify-content: space-between;
 }
 .right-icon i {
-    color: #919191;
+    color: #B1B3B5;
     font-size: 16px;
 }
 .notifiche {
     width: 100%;
     min-height: 65px;
-    background-color: #9EE1FE;
+    background-color: #006064;
     display: flex;
     align-items: center;
+    color: #e0e0e0;
 }
 
 .search {
     width: 100%;
     height: 55px;
-    background-color: #F6F6F6;
+    background-color: #2A2F32;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,15 +115,16 @@
     align-items: center;
     margin: 10px;
 }
+
 #bell i {
-    color:#9EE1FE; 
+    color:#006064; 
     font-size: 20px;
 }
 .notifiche h5 {
     font-size: 12px;
 }
 .notifiche a{
-    color: #000;
+    color: #fff;
     font-size: 11px;
 }
 .search > input {
@@ -132,10 +134,11 @@
     border-radius: 50px;
     outline: none;
     margin-left: 15px;
-
+    background-color: #33383B;
+    color: #e0e0e0;
 }
 .fa-search {
-    color: #919191;
+    color: #B1B3B5;
 }
 .list {
     width: 100%;
@@ -143,7 +146,7 @@
 }
 .list li {
     list-style: none;
-    border-bottom:1px solid #D7DBD6;
+    border-bottom:1px solid #131C21;
     min-height: 65px;
 }
 .list-chat {
@@ -157,19 +160,22 @@
     margin-right: 10px;
 }
 .name-user {
+    color: #e0e0e0;
     font-size: 14px;
 }
 .msg-user {
+    color: #e0e0e0;
     font-size: 11px;
     color: gray;
 }
 .date-user {
+    color: #e0e0e0;
     font-size: 8px;
     color: gray;
     margin-right: 10px;
 }
 .bg-active {
-    background-color: #EAEAEA;
+    background-color: #131C21;
 }
 
 .info-c {
@@ -185,7 +191,7 @@
 .info-chat {
     width: 100%;
     height: 65px;
-    background-color: #EDEDED;
+    background-color: #2A2F32;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -207,31 +213,30 @@
 }
 .right-icon-chat i {
     margin-left: 15px;
-    color: #919191;
+    color: #B1B3B5;
     font-size: 16px;
 }
 #dark {
     border: 0;
-    
     margin-left: 10px;
     font-size: 25px;
     background-color: transparent;
-    color: #919191;
+    color: #e0e0e0;
 }
 .main-chat {
     height: calc(90vh - 130px);
-    background-image: url("../img/mine.jpg");
+    background-image: url("../img/darkBackground.jpg");
     overflow-y: auto;
 }
 .write-chat {
     height: 65px;
-    background-color: #EDEDED;
+    background-color: #1E2428;
     display: flex;
     align-items: center;
     border-bottom-right-radius:5px ;
 }
 .fa-smile {
-    color: #919191;
+    color: #B1B3B5;
     margin-left: 20px;
 }
 .write-chat input {
@@ -241,11 +246,13 @@
     width: 85%;
     border-radius: 15px;
     outline: none;
+    background-color: #33383B;
+    color: #e0e0e0;
 }
 .fa-microphone {
     margin-right: 10px;
     margin-left: 10px;
-    color: #919191;
+    color: #B1B3B5;
 }
 i {
     cursor: pointer;
@@ -265,6 +272,7 @@ i {
 }
 
 .main-chat > div > span {
+    color: #e0e0e0;
     padding: 8px 10px;
     width: auto;
     height: auto;
@@ -280,13 +288,13 @@ i {
     
 }
 .sent {
-    background-color: #D5F9BB;
+    background-color: #056162;
     float: right;
     margin-right: 30px;
     clear: both;
 }
 .received {
-    background-color: #fff;
+    background-color: #262D31;
     float: left;
     margin-left: 30px;
     clear: both;
@@ -295,7 +303,7 @@ i {
 .message i {
     font-size: 14px;
     position: relative;
-    color:#919191 ;
+    color: #B1B3B5 ;
     margin-left: 5px;
 }
 
@@ -313,7 +321,8 @@ i {
     padding: 10px 5px;
     transform: translatex(-85px);
     top: 18px;
-    background-color: #fff;
+    color: #e0e0e0;
+    background-color: #2A2F32;
     font-size: 14px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px 0px,
     rgba(0, 0, 0, 0.2) 0px 8px 16px 0px;
@@ -326,13 +335,13 @@ i {
 }
 
 .fa-chevron-down:hover {
-    color: #000;
+    color: #e0e0e0;
 }
 .fa-chevron-down:hover li {
-    color:#919191  ;
+    color:#B1B3B5  ;
 }
 .dropdown-msg li:hover {
-    color: #000;
+    color: #e0e0e0;
 }
 .visible {
     display: block;
@@ -361,12 +370,12 @@ i {
         width: 95%;
         height: 90vh;
         margin: 0 auto;
-        background-color: red;
+
         position: absolute;
         bottom: 4%;
         left: 0;
         right: 0;
-        background-color: #F8F9FA;
+
         box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 4px 0px,
         rgba(0, 0, 0, 0.1) 0px 8px 16px 0px;
         border-radius: 4px;
@@ -428,16 +437,16 @@ i {
     }
     .search .fa-search {
         display: none;
-        color: #919191;
+       
     }
     .sent {
-        background-color: #D5F9BB;
+      
         float: right;
         margin-right: 10px;
         clear: both;
     }
     .received {
-        background-color: #fff;
+        
         float: left;
         margin-left: 50px;
         clear: both;

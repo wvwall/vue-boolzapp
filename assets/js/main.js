@@ -100,6 +100,28 @@ var app = new Vue({
             this.contacts[this.activeIndex].messages.splice(index, 1);
 			
         },
+		_addDarkTheme() {
+			let darkThemeLinkEl = document.createElement("link");
+			darkThemeLinkEl.setAttribute("rel", "stylesheet");
+			darkThemeLinkEl.setAttribute("href", "./assets/css/darkMode.css");
+			darkThemeLinkEl.setAttribute("id", "dark-theme-style");
+	  
+			let docHead = document.querySelector("head");
+			docHead.append(darkThemeLinkEl);
+		  },
+		  _removeDarkTheme() {
+			let darkThemeLinkEl = document.querySelector("#dark-theme-style");
+			let parentNode = darkThemeLinkEl.parentNode;
+			parentNode.removeChild(darkThemeLinkEl);
+		  },
+		  darkThemeSwitch() {
+			let darkThemeLinkEl = document.querySelector("#dark-theme-style");
+			if (!darkThemeLinkEl) {
+			  this._addDarkTheme()
+			} else {
+			  this._removeDarkTheme()
+			}
+		  }
 		
 	}
 	
