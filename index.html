@@ -54,7 +54,7 @@
                     </div>
                     <div class="search">
                         <i class="fas fa-search"></i>
-                        <input v-model="filterMsg" @keyup="searchUtente" placeholder="Cerca una chat">
+                        <input v-model="filterMsg" @keyup="searchUtente" placeholder="Cerca">
                     </div>
                     <ul class="list">
                         <li :class="{'bg-active': i == activeIndex}" class="list-chat" v-if="utente.visible" v-for= "(utente,i) in contacts" @click= "active(i) ">
@@ -97,7 +97,7 @@
                             <span class="message" :class="message.status" >{{ message.text }} 
                                 <i  @click="showDrop(drop)" class="fas fa-chevron-down" > <div :class="(contacts[activeIndex].messages[drop].drop) ? 'visible' : 'notvisible'" class="dropdown-msg">
                                     <ul>
-                                        <li>Info messaggio</li>
+                                        <li>Info</li>
                                         <li @click="deleteMsg(drop)" >Elimina</li>
                                     </ul>
                                 </div></i>

@@ -14,8 +14,8 @@ var app = new Vue({
 			this.activeIndex = index
 		},
 
-		lastMsg(index) {
-			let msg = contacts[index].messages;
+		lastMsg: function(index) {
+			let msg = this.contacts[index].messages;
 			return msg[msg.length - 1]
 		},
 
@@ -26,7 +26,7 @@ var app = new Vue({
 			return `${hours} : ${minutes}`;
 		}, */
 
-		addMsg() {
+		addMsg: function() {
             if (this.inputMsg != "") {
 				//pushare all'interno dell'utente active il nuovo messaggio 
                 let obj = {
@@ -43,7 +43,7 @@ var app = new Vue({
         },
 	
 
-		rixAuto() {
+		rixAuto: function() {
             setTimeout(() => {
 				// Settare dopo 1 secondo la risposta automatica
                 let obj = {
@@ -68,6 +68,7 @@ var app = new Vue({
 
             return moment(time,"HH:mm").format('HH:mm');
         },
+
 		 searchUtente(){
 
             // Salvo il valore scritto nell'input in variabile
@@ -89,6 +90,7 @@ var app = new Vue({
             });
 
         },
+
 		showDrop(index){
             if(this.contacts[this.activeIndex].messages[index].drop == false){
                 this.contacts[this.activeIndex].messages[index].drop = true;
@@ -96,11 +98,13 @@ var app = new Vue({
                 this.contacts[this.activeIndex].messages[index].drop = false;
             }
         },
+
 		deleteMsg(index){
             this.contacts[this.activeIndex].messages.splice(index, 1);
 			
         },
-		_addDarkTheme() {
+		
+		addDarkTheme() {
 			let darkThemeLinkEl = document.createElement("link");
 			darkThemeLinkEl.setAttribute("rel", "stylesheet");
 			darkThemeLinkEl.setAttribute("href", "./assets/css/darkMode.css");
@@ -109,7 +113,7 @@ var app = new Vue({
 			let docHead = document.querySelector("head");
 			docHead.append(darkThemeLinkEl);
 		  },
-		  _removeDarkTheme() {
+		  removeDarkTheme() {
 			let darkThemeLinkEl = document.querySelector("#dark-theme-style");
 			let parentNode = darkThemeLinkEl.parentNode;
 			parentNode.removeChild(darkThemeLinkEl);
@@ -117,9 +121,9 @@ var app = new Vue({
 		  darkThemeSwitch() {
 			let darkThemeLinkEl = document.querySelector("#dark-theme-style");
 			if (!darkThemeLinkEl) {
-			  this._addDarkTheme()
+			  this.addDarkTheme()
 			} else {
-			  this._removeDarkTheme()
+			  this.removeDarkTheme()
 			}
 		  }
 		
