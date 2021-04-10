@@ -1,5 +1,5 @@
 vue-boolzapp
-
+![alt text](https://github.com/wvwall/vue-boolzapp/assets/img/WalltsApp.png)
 Milestone 1
 ● Replica della grafica c on l a possibilità di avere messaggi scritti dall’utente (verdi) e
 dall’interlocutore (bianco) assegnando due classi CSS diverse
