@@ -1,6 +1,6 @@
 vue-boolzapp
 ![Screenshot](WalltsApp.png)
-![Screenshot](darkWalltsApp.png)
+![Screenshot2](darkWalltsApp.png)
 Milestone 1
 ● Replica della grafica c on l a possibilità di avere messaggi scritti dall’utente (verdi) e
 dall’interlocutore (bianco) assegnando due classi CSS diverse
