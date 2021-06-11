@@ -394,7 +394,7 @@ i {
         width: 50px;
         border-radius: 100%;
         margin: 0;
-        margin-left: 0px;
+        margin-left: 4px;
     }
     .contact {
         width: 17%;
@@ -415,6 +415,7 @@ i {
         border-radius: 50px;
         outline: none;
         margin-left: 0;
+        font-size: 12px;
     }
     .right-icon-chat {
         margin-right: 5px;

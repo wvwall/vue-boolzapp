@@ -376,7 +376,7 @@ i {
         width: 50px;
         border-radius: 100%;
         margin: 0;
-        margin-left: 0px;
+        margin-left: 4px;
     }
     .main-chat {
         height: calc(80vh - 130px);
@@ -402,6 +402,7 @@ i {
         border-radius: 50px;
         outline: none;
         margin-left: 0;
+        font-size: 12px;
     }
     .right-icon-chat {
         margin-right: 5px;
