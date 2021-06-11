@@ -36,23 +36,28 @@ var app = new Vue({
 					drop: false
                 }
                 this.contacts[this.activeIndex].messages.push(obj)
+				this.rixAuto(this.inputMsg)
                 this.inputMsg = ""
 				//richiamo rix automatica
-                this.rixAuto()
+                
             }
         },
 	
 
-		rixAuto: function() {
+		rixAuto: function(message) {
+			console.log(message);
+			let msg = message;
             setTimeout(() => {
+				console.log(msg);
 				// Settare dopo 1 secondo la risposta automatica
                 let obj = {
                     date: this.now(),
-                    text: "Ooooook",
+                    text: "Sono un attimo occupato, ci sentiamo dopo",
                     status: 'received',
 					drop:false
                 }
                 this.contacts[this.activeIndex].messages.push(obj)
+				console.log(msg);
 
             }, 1000);
         },
