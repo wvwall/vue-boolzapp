@@ -360,11 +360,11 @@ i {
     }
     #root {
         width: 95%;
-        height: 90vh;
+        height: 80vh;
         margin: 0 auto;
         background-color: red;
         position: absolute;
-        bottom: 4%;
+        bottom: 8%;
         left: 0;
         right: 0;
         background-color: #F8F9FA;
@@ -377,6 +377,11 @@ i {
         border-radius: 100%;
         margin: 0;
         margin-left: 0px;
+    }
+    .main-chat {
+        height: calc(80vh - 130px);
+        background-image: url("../img/mine.jpg");
+        overflow-y: auto;
     }
     .contact {
         width: 17%;

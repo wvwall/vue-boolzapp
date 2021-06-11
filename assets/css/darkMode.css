@@ -373,17 +373,22 @@ i {
     }
     #root {
         width: 95%;
-        height: 90vh;
+        height: 80vh;
         margin: 0 auto;
 
         position: absolute;
-        bottom: 4%;
+        bottom: 8%;
         left: 0;
         right: 0;
 
         box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 4px 0px,
         rgba(0, 0, 0, 0.1) 0px 8px 16px 0px;
         border-radius: 8px;
+    }
+    .main-chat {
+        height: calc(80vh - 130px);
+        
+        overflow-y: auto;
     }
     .list-chat img {
         width: 50px;
