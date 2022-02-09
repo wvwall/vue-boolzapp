@@ -1,133 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      rel="shortcut icon"
+      href="./assets/img/favicon.png"
+      type="image/x-icon"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WalltsApp</title>
     <!-- POPPINS FONT -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <!-- FONT-AWESOME -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-   <!-- CSS -->
-    <link rel="stylesheet" href="./assets/css/master.css">
-   <!-- MOMENTJS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
-</head>
-<body>
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/master.css" />
+    <!-- MOMENTJS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <nav>
-        <section class="green-top">
-        </section>
+      <section class="green-top"></section>
     </nav>
     <main>
-        <section class="main-container">
-        </section>
-        <div id="root">
-            
-            <div class="container-chats">
+      <section class="main-container"></section>
+      <div id="root">
+        <div class="container-chats">
+          <!-- SIDEBAR CONTATTI -->
 
-                <!-- SIDEBAR CONTATTI -->
-               
-                <div class="contact">
-                    
-                    <div class="info">
-                        <div class="left-info">
-                            <img src="./assets/img/user.png" alt="">
-                            <h5 id="user">wvwall</h5>
-                           
-                        </div>
-                       
-                        <div class="right-icon">
-                            <i class="fas fa-spinner"></i>
-                            <i class="fas fa-comment-alt"></i>
-                            <i class="fas fa-ellipsis-v"></i>
-                        </div>
-                    </div>
-                    <div class="notifiche">
-                        <span id="bell"><i class="far fa-bell-slash"></i></span>
-                        <span>
-                            <h5>Ricevi notifiche di nuovi messaggi</h5>
-                            <a href="">Attiva le notifiche desktop</a>
-                        </span>
-                    </div>
-                    <div class="search">
-                        <i class="fas fa-search"></i>
-                        <input v-model="filterMsg" @keyup="searchUtente" placeholder="Cerca">
-                    </div>
-                    <ul class="list">
-                        <li :class="{'bg-active': i == activeIndex}" class="list-chat" v-if="utente.visible" v-for= "(utente,i) in contacts" @click= "active(i) ">
-                            <img :src="'./assets/img/avatar' + utente.avatar + '.jpg'" alt="user">
-                            <div class="info-c">
-                                <span class="name-user">{{ utente.name }}</span>
-                                <span class="msg-user">{{ lastMsg(i).text }}</span>    
-                            </div>
-                            <span class="date-user">{{ lastMsg(i).date }}</span>   
-                        </li>
-                    </ul>
-                    <div><button id="dark" @click="darkThemeSwitch"><i class="fas fa-adjust"></i></button></div>
-                </div>
+          <div class="contact">
+            <div class="info">
+              <div class="left-info">
+                <img src="./assets/img/user.png" alt="" />
+                <h5 id="user">wvwall</h5>
+              </div>
 
-               <!-- CHATS -->
-
-                <div class="chat">
-                    <div class="info-chat">
-                        <div class="info-chat-left">
-                            <img :src="'assets/img/avatar' + contacts[activeIndex].avatar + '.jpg' " alt="user">
-                            <div class="info-c">
-                                <span class="name-user">{{ contacts[activeIndex].name }}</span>
-                                 <span class="msg-user">Ultimo accesso :{{ contacts[activeIndex].messages[contacts[activeIndex].messages.length - 1].date }}</span>    
-                            </div>
-
-                        </div>
-                        
-                        <div class="right-icon-chat">
-                            <i class="fas fa-search"></i>
-                            <i class="fas fa-paperclip"></i>
-                            <i class="fas fa-ellipsis-v"></i>
-                        </div>
-                        
-                    </div>
-
-                    <!-- MSG + DROPDOWN -->
-
-                    <div class="main-chat" >
-                        <div  v-for= "(message,drop) in contacts[activeIndex].messages">
-                            <span class="message" :class="message.status" >{{ message.text }} 
-                                <i  @click="showDrop(drop)" class="fas fa-chevron-down" > <div :class="(contacts[activeIndex].messages[drop].drop) ? 'visible' : 'notvisible'" class="dropdown-msg">
-                                    <ul>
-                                        <li>Info</li>
-                                        <li @click="deleteMsg(drop)" >Elimina</li>
-                                    </ul>
-                                </div></i>
-                               <div class="date-msg">
-                                <span id="date" >{{ message.date }}</span>
-                               </div>
-                            </span>
-                        </div>
-                        
-                        <!-- INPUT MSG -->
-
-                    </div>
-                    <div class="write-chat">
-                        <span><i class="far fa-smile"></i></span>
-                        <input v-model="inputMsg"  @keyup.enter="addMsg" placeholder="Scrivi messaggio">
-                        <span><i class="fas fa-microphone"></i></span>
-                    </div>
-                </div>  
+              <div class="right-icon">
+                <i class="fas fa-spinner"></i>
+                <i class="fas fa-comment-alt"></i>
+                <i class="fas fa-ellipsis-v"></i>
+              </div>
             </div>
-            
+            <div class="notifiche">
+              <span id="bell"><i class="far fa-bell-slash"></i></span>
+              <span>
+                <h5>Ricevi notifiche di nuovi messaggi</h5>
+                <a href="">Attiva le notifiche desktop</a>
+              </span>
+            </div>
+            <div class="search">
+              <i class="fas fa-search"></i>
+              <input
+                v-model="filterMsg"
+                @keyup="searchUtente"
+                placeholder="Cerca"
+              />
+            </div>
+            <ul class="list">
+              <li
+                :class="{'bg-active': i == activeIndex}"
+                class="list-chat"
+                v-if="utente.visible"
+                v-for="(utente,i) in contacts"
+                @click="active(i) "
+              >
+                <img
+                  :src="'./assets/img/avatar' + utente.avatar + '.jpg'"
+                  alt="user"
+                />
+                <div class="info-c">
+                  <span class="name-user">{{ utente.name }}</span>
+                  <span class="msg-user">{{ lastMsg(i).text }}</span>
+                </div>
+                <span class="date-user">{{ lastMsg(i).date }}</span>
+              </li>
+            </ul>
+            <div>
+              <button id="dark" @click="darkThemeSwitch">
+                <i class="fas fa-adjust"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- CHATS -->
+
+          <div class="chat">
+            <div class="info-chat">
+              <div class="info-chat-left">
+                <img
+                  :src="'assets/img/avatar' + contacts[activeIndex].avatar + '.jpg' "
+                  alt="user"
+                />
+                <div class="info-c">
+                  <span class="name-user"
+                    >{{ contacts[activeIndex].name }}</span
+                  >
+                  <span class="msg-user"
+                    >Ultimo accesso :{{
+                    contacts[activeIndex].messages[contacts[activeIndex].messages.length
+                    - 1].date }}</span
+                  >
+                </div>
+              </div>
+
+              <div class="right-icon-chat">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-paperclip"></i>
+                <i class="fas fa-ellipsis-v"></i>
+              </div>
+            </div>
+
+            <!-- MSG + DROPDOWN -->
+
+            <div class="main-chat">
+              <div v-for="(message,drop) in contacts[activeIndex].messages">
+                <span class="message" :class="message.status"
+                  >{{ message.text }}
+                  <i @click="showDrop(drop)" class="fas fa-chevron-down">
+                    <div
+                      :class="(contacts[activeIndex].messages[drop].drop) ? 'visible' : 'notvisible'"
+                      class="dropdown-msg"
+                    >
+                      <ul>
+                        <li>Info</li>
+                        <li @click="deleteMsg(drop)">Elimina</li>
+                      </ul>
+                    </div></i
+                  >
+                  <div class="date-msg">
+                    <span id="date">{{ message.date }}</span>
+                  </div>
+                </span>
+              </div>
+
+              <!-- INPUT MSG -->
+            </div>
+            <div class="write-chat">
+              <span><i class="far fa-smile"></i></span>
+              <input
+                v-model="inputMsg"
+                @keyup.enter="addMsg"
+                placeholder="Scrivi messaggio"
+              />
+              <span><i class="fas fa-microphone"></i></span>
+            </div>
+          </div>
         </div>
+      </div>
     </main>
-
-
-
 
     <!-- SCRIPT JS -->
 
-    <script src='https://cdn.jsdelivr.net/npm/vue'></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
     <script src="./assets/js/dati.js"></script>
     <script src="./assets/js/main.js"></script>
-</body>
+  </body>
 </html>
